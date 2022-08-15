@@ -1,16 +1,15 @@
-import React from 'react'
-import { UNCATEGORIZED_BUDGET_ID, useBudgets } from '../contenxts/BudgetsContext'
-import BudgetCard from './BudgetCard'
+import React from "react";
+import { UNCATEGORIZED_BUDGET_ID, useBudgets } from "../context/BudgetsContext";
+import BudgetCard from "./BudgetCard";
 
 export default function UncategorizedBudgetCard(props) {
-    const { getBudgetExpense } = useBudgets()
-    const amount = getBudgetExpense(UNCATEGORIZED_BUDGET_ID).reduce(
-        (total, expense) => total + expense.amount, 0
-    )
+  const { getBudgetExpense } = useBudgets();
+  const amount = getBudgetExpense(UNCATEGORIZED_BUDGET_ID).reduce(
+    (total, expense) => total + expense.amount,
+    0
+  );
 
-    if (amount === 0) return null
+  if (amount === 0) return null;
 
-    return (
-        <BudgetCard amount={amount} name='Uncategorized' gray {...props} />
-    )
+  return <BudgetCard amount={amount} name="Uncategorized" gray {...props} />;
 }
